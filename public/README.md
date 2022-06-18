@@ -1,0 +1,1 @@
++ index.ejs의 CSS, JS

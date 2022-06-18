@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            <%= title %>
+        </title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/css/master.css" /> 
+    </head>
+    <body>
+        sample text
+        <form action="/getdata" method="GET">
+            <button type="submit">데이터 불러오기</button>
+        </form>
+        <div class="font">FOR 1 datalist<br></div>
+        <p>
+            <% if(locals.data){ %>
+                <% var data_num=0; %>
+                    <% for(let i=0;i<data.length;i++){ %>
+                        <!-- id : <%= data[i].id  %>, password : <%= data[i].password %><br> -->
+                        <!-- 퍼센트 : <%= data[i]%><br> -->
+                        <% if(data[i].Districtname =="중랑구" ) { %>
+                            <% data_num = data_num + 1; %>
+                        <% } %>
+                <% } %>
+                중랑구 : <%= Math.floor(data_num / data.length * 100) %> %
+            <% } %>
+        </p>
+    </body>
+</html>
+
+<!-- 서버에서 DB데이터를 받아오는 다른 방식  -->
+<!-- FOR 2 datalist<br>
+        <% if(locals.data){ %>
+            <% for(let dat in data){ %>
+                id : <%= dat.id  %>, password : <%= dat.password %><br>
+            <% } %>
+        <% } %>
+        FOR 3 datalist<br>
+        <% if(locals.data){ %>
+            <% data.forEach(function(val){ %>
+              id  : <%= val.id  %>, password : <%= val.password %><br>
+            <% }) %>
+        <% } %> -->
