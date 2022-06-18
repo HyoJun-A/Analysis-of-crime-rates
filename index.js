@@ -12,7 +12,7 @@ const client = mysql.createConnection({
 });
 
 
-app.use('/css',express.static(__dirname +'/public'));
+app.use(express.static(__dirname +'/public'));
 const mainPage = fs.readFileSync('./views/index.ejs', 'utf8');
  
 app.get('/', (req, res) => {
