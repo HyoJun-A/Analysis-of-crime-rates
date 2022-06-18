@@ -2,14 +2,16 @@ const express = require('express');
 const fs = require('fs');
 const ejs = require('ejs');
 const mysql = require('mysql');
+// DB의 정보를 config파일에 저장 하여 사용 
+var db_config = require('./config/db-config.json')
 const app = express();
  
 // DB연결 
 const client = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password : '2253',
-    database : 'mydb'
+    host: db_config.host,
+    user: db_config.user,
+    password : db_config.password,
+    database : db_config.database
 });
 
 // 미들웨어 사용
