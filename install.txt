@@ -7,3 +7,4 @@ npm install --save mysql2 : mysqsl사용
 npm install --save mysql2 : mysqsl사용
 npm install --save sequelize : sequelize모듈 설치
 npm i -g sequelize-cli : 콘솔에서 sequelize 명령 가능하게 하는 모듈
+npm i --save body-parser : req데이터를 사용자가 원하는 형태로 parsing하여 문제를 해결할 수 있다.
