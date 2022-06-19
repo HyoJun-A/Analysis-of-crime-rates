@@ -2,9 +2,17 @@ const express = require('express');
 const fs = require('fs');
 const ejs = require('ejs');
 const mysql = require('mysql');
-// DB의 정보를 config파일에 저장 하여 사용 
-var db_config = require('./config/db-config.json')
 const app = express();
+// DB의 정보를 config파일에 저장 하여 사용 
+const db_config = require('./config/db-config.json');
+// HTML > 서버로 데이터 받아오기 위하여 사용 
+const bodyParser = require('body-parser');
+const { title } = require('process');
+app.use(bodyParser.urlencoded({extended : true}));
+var user_data =[];
+
+
+
  
 // DB연결 
 const client = mysql.createConnection({
@@ -26,10 +34,11 @@ app.get('/', (req, res) => {
 });
 
 
+// DB query
 Query1 = 'SELECT COUNT(Districtname) / (SELECT COUNT(Districtname) FROM cctv) *100 from school WHERE Districtname = "강남구" or Districtname = "중랑구";'
-
-// 쿼리문 
+// DB query
 Query= "SELECT * from cctv;"
+
 app.get('/getdata?', (req, res) => {
     client.query(Query, function(err, result, fields){
         if(err) throw err;
@@ -44,6 +53,16 @@ app.get('/getdata?', (req, res) => {
             res.send(page);
         }
     });
+});
+
+
+app.post('/test', function(req, res){
+    // console.log(req.body.date);
+    var user = req.body.date;
+    var user1 = req.body.title;
+    user_data[0] = user;
+    user_data[1] = user1;
+    console.log(user_data[0], user_data[1]);
 });
 
 
