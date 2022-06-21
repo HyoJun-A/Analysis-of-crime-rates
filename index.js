@@ -62,7 +62,7 @@ app.get('/getdata?', (req, res) => {
         // fields : 각 데이터의 해당 위치를 받아온다.
         else{
             var page = ejs.render(mainPage, {
-                title: "Temporary Title",
+                title: "DB data",
                 data: result,
             });
             res.send(page);

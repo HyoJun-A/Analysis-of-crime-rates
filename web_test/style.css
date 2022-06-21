@@ -46,7 +46,7 @@
     border-color: LightSalmon;
     word-break: break-all;
     margin: 10%;
-    font-size: 25px;
+    font-size: 100%;
     text-align: center;
   }
   
@@ -60,7 +60,7 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;*/
-     width: 80%;
+    width: 80%;
     height: 4%;
     background-size: 20px;
     padding: 5px 30px 5px 10px;
