@@ -34,28 +34,31 @@ app.get('/', (req, res) => {
 });
 
 // HTML에서 보낸 값을 받아와서 user_data에 저장 
-app.post('/test', function(req, res){
-    // console.log(req.body.date);
-    var user = req.body.date;
-    var user1 = req.body.title;
-    user_data[0] = user;
-    user_data[1] = user1;
-    // console.log(user_data[0], user_data[1]);
-    const Query= "SELECT * from " + user_data[0] + ";";
-    user_data[2] = Query;
+app.post('/data', function(req, res){
+    // district select save
+    var DB = req.body.district;
+    user_data[0] = DB;
+    
+    // DB Query save 
+    const cctv = "SELECT * FROM CCTV WHERE Districtname = '" + user_data[0] + "';";
+    const population = "SELECT * FROM POPULATION WHERE Districtname = '" + user_data[0] + "';";
+    const school = "SELECT * FROM SCHOOL WHERE Districtname = '" + user_data[0] + "';";
+    
+    user_data[1] = cctv;
+    user_data[2] = population;
+    user_data[3] = school;
+
     console.log(user_data[0]);
     console.log(user_data[1]);
     console.log(user_data[2]);
+    console.log(user_data[3]);
 });
 
 
-// DB query
-Query1 = 'SELECT COUNT(Districtname) / (SELECT COUNT(Districtname) FROM cctv) *100 from school WHERE Districtname = "강남구" or Districtname = "중랑구";'
-// DB query
 
 
 app.get('/getdata?', (req, res) => {
-    client.query(user_data[2], function(err, result, fields){
+    client.query(user_data[1], function(err, result, fields){
         if(err) throw err;
         // DB의 데이터를 받아와서 EJS에 전달 (.rende)
         // data : 각 데이터를 받아온다.
@@ -63,9 +66,27 @@ app.get('/getdata?', (req, res) => {
         else{
             var page = ejs.render(mainPage, {
                 title: "DB data",
-                data: result,
+                cc: result,
             });
             res.send(page);
+            
+        }
+    });
+});
+
+app.get('/getdata?', (req, res) => {
+    client.query(user_data[1], function(err, result, fields){
+        if(err) throw err;
+        // DB의 데이터를 받아와서 EJS에 전달 (.rende)
+        // data : 각 데이터를 받아온다.
+        // fields : 각 데이터의 해당 위치를 받아온다.
+        else{
+            var page = ejs.render(mainPage, {
+                title: "DB data",
+                po: result,
+            });
+            res.send(page);
+            
         }
     });
 });
