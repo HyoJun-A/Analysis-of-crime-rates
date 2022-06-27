@@ -6,7 +6,6 @@
   <title>Crime_Map</title>
   <link rel="stylesheet" type="text/css" href="./style.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
 </head>
 
 <body>
@@ -24,7 +23,7 @@
     <!-- 자치구 선택 -->
     <!-- 자치구를 선택하고 선택한 자치구의 데이터를 서버에 전달  -->
     <form action="/data" method="post">
-      <select name="자치구" id="select_box" class="select_box">
+      <select name="district" id="select_box" class="select_box">
         <option disabled selected>자치구를 선택해 주세요</option>
         <option value="Gangnam">강남구</option>
         <option value="Gwangjin">광진구</option>
@@ -54,14 +53,14 @@
       </select>
 
       <!-- 버튼, 데이터, 자치구, 범죄율, 위험도 확인 -->
-    <div id="btn">
-      <!-- <button id="btn1" , type="button" class="btn1">데이터 확인</button> -->
-      <!-- type="submit" 데이터를 서버에 전달하는 버튼 -->
-      <button id="btn1" , type="submit" class="btn1">데이터 확인</button>
-      <button id="btn2" , type="button" class="btn2">자치구 위치</button>
-      <button id="btn3" , type="button" class="btn3">범죄율 확인</button>
-      <button id="btn4" , type="button" class="btn4">위험도 확인</button>
-    </div>
+      <div id="btn">
+        <!-- <button id="btn1" , type="button" class="btn1">데이터 확인</button> -->
+        <!-- type="submit" 데이터를 서버에 전달하는 버튼 -->
+        <button id="btn1" , type="submit" class="btn1">데이터 불러오기</button>
+        <button id="btn2" , type="button" class="btn2">자치구 위치</button>
+        <button id="btn3" , type="button" class="btn3">범죄율 확인</button>
+        <button id="btn4" , type="button" class="btn4">위험도 확인</button>
+      </div>
     </form>
     
     <!-- 범죄율, 위험도 -->
@@ -78,16 +77,16 @@
   <!-- 데이터 그래프 실행 화면(하단, CCTV, 유동인구, 학교 데이터) -->
   <div id="footer">
     <div class="zt-skill-bar">
-      <div data-width="88" style="">cctv<span>88%</span></div>
+      <div data-width="88" >cctv<span>88%</span></div>
     </div>
     <div class="zt-skill-bar">
-      <div data-width="92" style="">department<span>92%</span></div>
+      <div data-width="92" >department<span>92%</span></div>
     </div>
     <div class="zt-skill-bar">
-      <div data-width="82" style="">population<span>82%</span></div>
+      <div data-width="82" >population<span>82%</span></div>
     </div>
     <div class="zt-skill-bar">
-      <div data-width="85" style="">school<span>85%</span></div>
+      <div data-width="85" >school<span>85%</span></div>
     </div>
   </div>
 
