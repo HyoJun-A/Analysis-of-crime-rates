@@ -23,50 +23,53 @@
     </div>
     <!-- 자치구 선택 -->
     <!-- 자치구를 선택하고 선택한 자치구의 데이터를 서버에 전달  -->
-    <form action="/data" method="post"></form>
-    <select name="자치구" id="select_box" class="select_box">
-      <option disabled selected>자치구를 선택해 주세요</option>
-      <option value="Gangnam">강남구</option>
-      <option value="Gwangjin">광진구</option>
-      <option value="Yeongdeungpo">영등포구</option>
-      <option value="Songpa">송파구</option>
-      <option value="Gukhoe">양천구</option>
-      <option value="Gamasan">금천구</option>
-      <option value="Guro">구로구</option>
-      <option value="Gangseo">강서구</option>
-      <option value="Eunpyeong">은평구</option>
-      <option value="Seocho">서초구</option>
-      <option value="Gangdong">강동구</option>
-      <option value="Mapo">마포구</option>
-      <option value="Seodaemun">서대문구</option>
-      <option value="Yongsan">용산구</option>
-      <option value="Nowon">노원구</option>
-      <option value="Dobong">도봉구</option>
-      <option value="Seongbuk">성북구</option>
-      <option value="Gangbuk">강북구</option>
-      <option value="Jungnang">중랑구</option>
-      <option value="Seongdong">성동구</option>
-      <option value="Dongdaemun">동대문구</option>
-      <option value="Jongno">종로구</option>
-      <option value="Jung">중구</option>
-      <option value="Dongjak">동작구</option>
-      <option value="Gwanak">관악구</option>
-    </select>
+    <form action="/data" method="post">
+      <select name="자치구" id="select_box" class="select_box">
+        <option disabled selected>자치구를 선택해 주세요</option>
+        <option value="Gangnam">강남구</option>
+        <option value="Gwangjin">광진구</option>
+        <option value="Yeongdeungpo">영등포구</option>
+        <option value="Songpa">송파구</option>
+        <option value="Gukhoe">양천구</option>
+        <option value="Gamasan">금천구</option>
+        <option value="Guro">구로구</option>
+        <option value="Gangseo">강서구</option>
+        <option value="Eunpyeong">은평구</option>
+        <option value="Seocho">서초구</option>
+        <option value="Gangdong">강동구</option>
+        <option value="Mapo">마포구</option>
+        <option value="Seodaemun">서대문구</option>
+        <option value="Yongsan">용산구</option>
+        <option value="Nowon">노원구</option>
+        <option value="Dobong">도봉구</option>
+        <option value="Seongbuk">성북구</option>
+        <option value="Gangbuk">강북구</option>
+        <option value="Jungnang">중랑구</option>
+        <option value="Seongdong">성동구</option>
+        <option value="Dongdaemun">동대문구</option>
+        <option value="Jongno">종로구</option>
+        <option value="Jung">중구</option>
+        <option value="Dongjak">동작구</option>
+        <option value="Gwanak">관악구</option>
+      </select>
 
-    <!-- 버튼, 데이터, 자치구, 범죄율, 위험도 확인 -->
+      <!-- 버튼, 데이터, 자치구, 범죄율, 위험도 확인 -->
     <div id="btn">
-      <button id="btn1" , type="button" class="btn1">데이터 확인</button>
+      <!-- <button id="btn1" , type="button" class="btn1">데이터 확인</button> -->
+      <!-- type="submit" 데이터를 서버에 전달하는 버튼 -->
+      <button id="btn1" , type="submit" class="btn1">데이터 확인</button>
       <button id="btn2" , type="button" class="btn2">자치구 위치</button>
       <button id="btn3" , type="button" class="btn3">범죄율 확인</button>
       <button id="btn4" , type="button" class="btn4">위험도 확인</button>
     </div>
-
+    </form>
+    
     <!-- 범죄율, 위험도 -->
     <div class='container'>
       <div class="chart doughnut1" id="doughnut1"><span class="center">범죄율<br>80%</span></div>
       <div class="chart1 doughnut2" id="doughnut2"><span class="center">예방율<br>50%</span></div>
-
     </div>
+    
   </div>
 
 
