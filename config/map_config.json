@@ -1,0 +1,3 @@
+api = {
+    "map" : "https://maps.googleapis.com/maps/api/js?key=AIzaSyAd39s27dCltqdvzpRSv0pFBjdb4FD6k3o&callback=initMap&region=kr"
+}
