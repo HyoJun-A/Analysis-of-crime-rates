@@ -6,7 +6,7 @@
   <title>Crime_Map</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link rel="stylesheet" href="/css/style.css" />
-  <script src="/js/script.js"></script>
+  
 </head>
 
 <body>
@@ -58,12 +58,14 @@
         <!-- <button id="btn1" , type="button" class="btn1">데이터 확인</button> -->
         <!-- type="submit" 데이터를 서버에 전달하는 버튼 -->
         <button id="btn1" , type="submit" class="btn1">DB연결</button>
+      </div>
+    </form>
+      <div id ="btn">
         <!-- 버튼 클릭시 textbox의 값을 사용하여 확인 -->
         <button id="btn2" , type="button" class="btn2">데이터 확인</button>
         <button id="btn3" , type="button" class="btn3">범죄율 확인</button>
         <button id="btn4" , type="button" class="btn4">위험도 확인</button>
       </div>
-    </form>
     <form action="/getdata" method="GET">
       <!-- 데이터를 받아와서 홈페이지에 값을 사용 -->
         <button id = "btn5", type="submit" class="btn5">UseData</button>
@@ -119,6 +121,7 @@
   <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAd39s27dCltqdvzpRSv0pFBjdb4FD6k3o&callback=initMap&region=kr"></script>
   <!-- <script src="/js/script.js"></script> -->
+  <script src="/js/script.js"></script>
 </body>
 
 </html>

@@ -125,21 +125,21 @@
   /* 범죄율, 위험도 */
   .chart {
     position: relative;
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     transition: 0.3s;
-    margin-top: 65%;
+    margin-top: 70%;
     margin-left: 20%;
   }
   
   .chart1 {
     position: relative;
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     transition: 0.3s;
-    margin-top: 20%;
+    margin-top: 15%;
     margin-left: 20%;
   }
   
@@ -148,9 +148,9 @@
     
     position: absolute;
     top: 50%;
-    left: 50%;
-    width: 100px;
-    height: 100px;
+    left: 50%; 
+    width: 40%;
+    height: 40%;
     border-radius: 50%;
     text-align: center;
     line-height: 40px;

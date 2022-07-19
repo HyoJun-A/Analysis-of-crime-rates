@@ -46,7 +46,7 @@
     border-color: LightSalmon;
     word-break: break-all;
     margin: 10%;
-    font-size: 25px;
+    font-size: 100%;
     text-align: center;
   }
   
@@ -60,7 +60,7 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;*/
-     width: 80%;
+    width: 80%;
     height: 4%;
     background-size: 20px;
     padding: 5px 30px 5px 10px;
@@ -113,6 +113,7 @@
     margin-right: 10%;
     float: right;
   }
+
   .btn5 {
     width: 80%;
     margin-left: 10%;
@@ -124,21 +125,21 @@
   /* 범죄율, 위험도 */
   .chart {
     position: relative;
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     transition: 0.3s;
-    margin-top: 65%;
+    margin-top: 70%;
     margin-left: 20%;
   }
   
   .chart1 {
     position: relative;
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     transition: 0.3s;
-    margin-top: 20%;
+    margin-top: 15%;
     margin-left: 20%;
   }
   
@@ -147,9 +148,9 @@
     
     position: absolute;
     top: 50%;
-    left: 50%;
-    width: 100px;
-    height: 100px;
+    left: 50%; 
+    width: 40%;
+    height: 40%;
     border-radius: 50%;
     text-align: center;
     line-height: 40px;
