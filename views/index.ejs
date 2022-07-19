@@ -84,14 +84,14 @@
   <!-- 데이터 그래프 실행 화면(하단, CCTV, 유동인구, 학교 데이터) -->
   <div id="footer">
     <% if(locals.Ddata){ %>
-      <% var data = []; %>
+      <!-- <% var data = []; %>
       <% for(let i = 0; i < 1; i++){ %>
         <% data[i] = Ddata[i].Cdata;  %> 
-      <% } %>
+      <% } %> -->
     <div class="zt-skill-bar">
-      <div data-width=<%= data[0] %> >cctv
-        <span>
-          <%= data[0] %> %
+      <div data-width= <%= Ddata[0].Cdata %> >cctv
+        <span> 
+          <%= Ddata[0].Cdata %> %
         </span>
       </div>
     </div>
@@ -99,16 +99,16 @@
       <div data-width="92" >department<span>92%</span></div>
     </div> -->
     <div class="zt-skill-bar">
-      <div data-width=<%= data[1] %> >population
+      <div data-width= <%= Ddata[1].Cdata %> >population
         <span>
-          <%= data[1] %> %
+          <%= Ddata[1].Cdata %> %
         </span>
       </div>
     </div>
     <div class="zt-skill-bar">
-      <div data-width=<%= data[2] %> >school
+      <div data-width= <%= Ddata[2].Cdata %> >school
         <span>
-          <%= data[2] %> %
+          <%= Ddata[2].Cdata %> %
         </span>
       </div>
     </div>
