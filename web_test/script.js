@@ -172,7 +172,7 @@ function initMap() {
   // }(jQuery));
   
   $(document).ready(function () {
-    $("#btn1").click(function () {
+    $("#btn2").click(function () {
       function animated_contents() {
         $(".zt-skill-bar > div ").each(function (i) {
             var $this  = $(this),

@@ -141,6 +141,7 @@ function initMap() {
   
     });
   });
+  
   $(document).ready(function () {
     $("#btn4").click(function () {
       makeChart(50, chart2, '#0A174E');
@@ -172,7 +173,7 @@ function initMap() {
   // }(jQuery));
   
   $(document).ready(function () {
-    $("#btn1").click(function () {
+    $("#btn2").click(function () {
       function animated_contents() {
         $(".zt-skill-bar > div ").each(function (i) {
             var $this  = $(this),

@@ -1,65 +1,124 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>
-            <%= title %>
-        </title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="/css/style.css" /> 
-        <script src="/js/script.js"></script>
-    </head>
-    <body>
-        <form action="/getdata" method="GET">
-            <button type="submit">데이터 불러오기</button>
-        </form>
-        <div class="font">FOR 1 datalist<br></div>
-        <p>
-            <% if(locals.data){ %>
-                <% var data_num=0; %>
-                    <% for(let i=0;i<data.length;i++){ %>
-                        <!-- id : <%= data[i].id  %>, password : <%= data[i].password %><br> -->
-                        <!-- 퍼센트 : <%= data[i]%><br> -->
-                        <% if(data[i].Districtname =="중랑구" ) { %>
-                            <% data_num = data_num + 1; %>
-                        <% } %>
-                <% } %>
-                중랑구 : <%= Math.floor(data_num / data.length * 100) %> %
-            <% } %>
-        </p>
-        <div class="container mt-3">
-            <!-- method : 정보를 어떤 형태로 전달할건지 지정 -->
-            <form action="/data" method="POST">
-                <div class="form-group">
-                    <label>제목</label>
-                    <input type="text" class="form-control" name="title">
-                </div>
-        
-                <div class="form-group">
-                    <!-- <label>날짜</label> -->
-                    <!-- <input type="text" class="form-control" name="date"> -->
-                    <select name="district">
-                        <option value="강남구">a</option>
-                        <option value="b">b</option>
-                        <option value="c">c</option>
-                        <option value="d">d</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-outline-secondary">Submit</button>
-            </form>
-        </div>
-    </body>
-</html>
 
-<!-- 서버에서 DB데이터를 받아오는 다른 방식  -->
-<!-- FOR 2 datalist<br>
-        <% if(locals.data){ %>
-            <% for(let dat in data){ %>
-                id : <%= dat.id  %>, password : <%= dat.password %><br>
-            <% } %>
-        <% } %>
-        FOR 3 datalist<br>
-        <% if(locals.data){ %>
-            <% data.forEach(function(val){ %>
-              id  : <%= val.id  %>, password : <%= val.password %><br>
-            <% }) %>
-        <% } %> -->
+<head>
+  <meta charset="UTF-8">
+  <title>Crime_Map</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="/css/style.css" />
+  <script src="/js/script.js"></script>
+</head>
+
+<body>
+  <!-- 상단(좌), 구글맵 화면 -->
+  <div id="nav">
+    <div id="map"></div>
+  </div>
+
+  <!-- 상단(우), 제목, 버튼 , 범죄율, 범죄위험도 화면 -->
+  <div id="section">
+    <!-- 제목 -->
+    <div id="text">
+      <h1>Crime_Map</h1>
+    </div>
+    <!-- 자치구 선택 -->
+    <!-- 자치구를 선택하고 선택한 자치구의 데이터를 서버에 전달  -->
+    <form action="/data" method="post">
+      <select name="district" id="select_box" class="select_box">
+        <option disabled selected>자치구를 선택해 주세요</option>
+        <option value="강남구">강남구</option>
+        <option value="광진구">광진구</option>
+        <option value="영등포구">영등포구</option>
+        <option value="송파구">송파구</option>
+        <option value="양천구">양천구</option>
+        <option value="금천구">금천구</option>
+        <option value="구로구">구로구</option>
+        <option value="강서구">강서구</option>
+        <option value="은평구">은평구</option>
+        <option value="서초구">서초구</option>
+        <option value="강동구">강동구</option>
+        <option value="마포구">마포구</option>
+        <option value="서대문구">서대문구</option>
+        <option value="용산구">용산구</option>
+        <option value="노원구">노원구</option>
+        <option value="도봉구">도봉구</option>
+        <option value="성북구">성북구</option>
+        <option value="강북구">강북구</option>
+        <option value="중랑구">중랑구</option>
+        <option value="성동구">성동구</option>
+        <option value="동대문구">동대문구</option>
+        <option value="종로구">종로구</option>
+        <option value="중구">중구</option>
+        <option value="동작구">동작구</option>
+        <option value="관악구">관악구</option>
+      </select>
+
+      <!-- 버튼, 데이터, 자치구, 범죄율, 위험도 확인 -->
+      <div id="btn">
+        <!-- <button id="btn1" , type="button" class="btn1">데이터 확인</button> -->
+        <!-- type="submit" 데이터를 서버에 전달하는 버튼 -->
+        <button id="btn1" , type="submit" class="btn1">DB연결</button>
+        <!-- 버튼 클릭시 textbox의 값을 사용하여 확인 -->
+        <button id="btn2" , type="button" class="btn2">데이터 확인</button>
+        <button id="btn3" , type="button" class="btn3">범죄율 확인</button>
+        <button id="btn4" , type="button" class="btn4">위험도 확인</button>
+      </div>
+    </form>
+    <form action="/getdata" method="GET">
+      <!-- 데이터를 받아와서 홈페이지에 값을 사용 -->
+        <button id = "btn5", type="submit" class="btn5">UseData</button>
+    </form>
+    
+    <!-- 범죄율, 위험도 -->
+    <!-- 위험도를 측정하는 부분은 미구현 -->
+    <div class='container'>
+      <div class="chart doughnut1" id="doughnut1"><span class="center">범죄율<br>80%</span></div>
+      <div class="chart1 doughnut2" id="doughnut2"><span class="center">예방율<br>50%</span></div>
+    </div>
+    
+  </div>
+
+
+  
+
+  <!-- 데이터 그래프 실행 화면(하단, CCTV, 유동인구, 학교 데이터) -->
+  <div id="footer">
+    <% if(locals.Ddata){ %>
+      <% var data = []; %>
+      <% for(let i = 0; i < 1; i++){ %>
+        <% data[i] = Ddata[i].Cdata;  %> 
+      <% } %>
+    <div class="zt-skill-bar">
+      <div data-width=<%= data[0] %> >cctv
+        <span>
+          <%= data[0] %> %
+        </span>
+      </div>
+    </div>
+    <!-- <div class="zt-skill-bar">
+      <div data-width="92" >department<span>92%</span></div>
+    </div> -->
+    <div class="zt-skill-bar">
+      <div data-width=<%= data[1] %> >population
+        <span>
+          <%= data[1] %> %
+        </span>
+      </div>
+    </div>
+    <div class="zt-skill-bar">
+      <div data-width=<%= data[2] %> >school
+        <span>
+          <%= data[2] %> %
+        </span>
+      </div>
+    </div>
+    <% } %>
+  </div>
+
+  <!--google map-->
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAd39s27dCltqdvzpRSv0pFBjdb4FD6k3o&callback=initMap&region=kr"></script>
+  <!-- <script src="/js/script.js"></script> -->
+</body>
+
+</html>

@@ -56,14 +56,20 @@
       <div id="btn">
         <!-- <button id="btn1" , type="button" class="btn1">데이터 확인</button> -->
         <!-- type="submit" 데이터를 서버에 전달하는 버튼 -->
-        <button id="btn1" , type="submit" class="btn1">데이터 불러오기</button>
-        <button id="btn2" , type="button" class="btn2">자치구 위치</button>
+        <button id="btn1" , type="submit" class="btn1">DB연결</button>
+        <!-- 버튼 클릭시 textbox의 값을 사용하여 확인 -->
+        <button id="btn2" , type="button" class="btn2">데이터 확인</button>
         <button id="btn3" , type="button" class="btn3">범죄율 확인</button>
         <button id="btn4" , type="button" class="btn4">위험도 확인</button>
       </div>
+      <form action="/getdata" method="GET">
+        <!-- 데이터를 받아와서 홈페이지에 값을 사용 -->
+          <button id = "btn5", type="submit" class="btn5">UseData</button>
+      </form>
     </form>
     
     <!-- 범죄율, 위험도 -->
+    <!-- 위험도를 측정하는 부분은 미구현 -->
     <div class='container'>
       <div class="chart doughnut1" id="doughnut1"><span class="center">범죄율<br>80%</span></div>
       <div class="chart1 doughnut2" id="doughnut2"><span class="center">예방율<br>50%</span></div>
@@ -77,16 +83,40 @@
   <!-- 데이터 그래프 실행 화면(하단, CCTV, 유동인구, 학교 데이터) -->
   <div id="footer">
     <div class="zt-skill-bar">
-      <div data-width="88" >cctv<span>88%</span></div>
+      <div data-width="88" >cctv
+        <span>
+          <% if(locals.data){ %>
+            <% for(let i = 0; i < 1; i++){ %>
+              <%= data[0].Cdata  %> %
+            <% } %>
+          <% } %>
+        </span>
+      </div>
     </div>
-    <div class="zt-skill-bar">
+    <!-- <div class="zt-skill-bar">
       <div data-width="92" >department<span>92%</span></div>
+    </div> -->
+    <div class="zt-skill-bar">
+      <div data-width="82" >population
+        <span>
+          <% if(locals.data){ %>
+            <% for(let i = 0; i < 1; i++){ %>
+              <%= data[1].Cdata  %> %
+            <% } %>
+          <% } %>
+        </span>
+      </div>
     </div>
     <div class="zt-skill-bar">
-      <div data-width="82" >population<span>82%</span></div>
-    </div>
-    <div class="zt-skill-bar">
-      <div data-width="85" >school<span>85%</span></div>
+      <div data-width="85" >school
+        <span>
+          <% if(locals.data){ %>
+            <% for(let i = 0; i < 1; i++){ %>
+              <%= data[2].Cdata  %> %
+            <% } %>
+          <% } %>
+        </span>
+      </div>
     </div>
   </div>
 
