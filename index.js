@@ -43,9 +43,11 @@ app.post('/data', function(req, res){
     const cctv = "SELECT * FROM CCTV WHERE Districtname = '" + user_data[0] + "';";
     const population = "SELECT * FROM POPULATION WHERE Districtname = '" + user_data[0] + "';";
     const school = "SELECT * FROM SCHOOL WHERE Districtname = '" + user_data[0] + "';";
-
+    // 테이터 퍼센트 값 
     const data_num = "SELECT TRUNCATE( COUNT(Districtname) / (SELECT COUNT(Districtname) FROM cctv) *100, 0) as Cdata from cctv WHERE Districtname = '" + user_data[0] + "' UNION SELECT TRUNCATE( COUNT(Districtname) / (SELECT COUNT(Districtname) FROM population) *100, 0) as Pdata from population WHERE Districtname = '" + user_data[0] + "'UNION SELECT TRUNCATE( COUNT(Districtname) / (SELECT COUNT(Districtname) FROM school) *100, 0) as Sdata from school WHERE Districtname = '" + user_data[0] + "';";
     
+    // 범죄율
+    const crime = 
     // DB전체 정보
     user_data[1] = cctv;
     user_data[2] = population;
