@@ -16,8 +16,8 @@
   /* 웹 상단(좌) */
   #nav {
     width: 80%;
-    height: 70%;
-    float: left;
+    height: 100%;
+    float: right;
   }
   
   /* 웹 상단(우) */
@@ -25,14 +25,14 @@
     background-color: #FFFFFF;
     color: black;
     width: 20%;
-    height: 100%;
-    float: right;
+    height: 70%;
+    float: left;
   }
   
   /* 웹 하단 */
   #footer {
       background-color: #E8E8E8;
-      width: 80%;
+      width: 20%;
       height: 30%;
       float: left;
       position: relative;
