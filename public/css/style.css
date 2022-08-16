@@ -13,19 +13,19 @@
   
   /* 웹 화면 css */
   
-  /* 웹 상단(좌) */
+  /* 지도 */
   #nav {
     width: 80%;
     height: 100%;
     float: right;
   }
   
-  /* 웹 상단(우) */
+  /* 웹 상단(좌) */
   #section {
     background-color: #FFFFFF;
     color: black;
     width: 20%;
-    height: 70%;
+    height: 40%;
     float: left;
   }
   
@@ -33,7 +33,7 @@
   #footer {
       background-color: #E8E8E8;
       width: 20%;
-      height: 30%;
+      height: 60%;
       float: left;
       position: relative;
   }
@@ -46,6 +46,7 @@
     border-color: LightSalmon;
     word-break: break-all;
     margin: 10%;
+    margin-top: 20%;
     font-size: 100%;
     text-align: center;
   }
@@ -101,7 +102,7 @@
     float: right;
   }
   
-  
+/*   
   .btn3 {
     width: 38%;
     margin-left: 10%;
@@ -112,18 +113,23 @@
     width: 38%;
     margin-right: 10%;
     float: right;
-  }
+  } */
 
   .btn5 {
-    width: 80%;
+    width: 38%;
     margin-left: 10%;
-    margin-top: 5%;
     float: left;
 
   }
+
+  .btn6 {
+    width: 38%;
+    margin-right: 10%;
+    float: right;
+  }
   
   /* 범죄율, 위험도 */
-  .chart {
+  /* .chart {
     position: relative;
     width: 200px;
     height: 200px;
@@ -224,7 +230,7 @@
     left: 210px;
   }
   
-  
+   */
   
   /* ------------------------------- */
   .zt-skill-bar {
