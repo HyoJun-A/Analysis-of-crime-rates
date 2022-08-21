@@ -55,6 +55,7 @@ app.post('/data', function(req, res){
     // 선택된 테이블에서 퍼센트 값
     user_data[4] = data_num;
     console.log('연결완료');
+    console.log(user_data[4]);
 });
 
 
