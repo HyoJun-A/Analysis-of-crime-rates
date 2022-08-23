@@ -4,7 +4,15 @@
 //       alert('Hello world');
 //     })
 //   }
+var list = [];
 
+
+$("select[name = district]").change(function(){
+  var asd = $("select[name=district] option:selected").text();
+  // console.log(asd);
+  list.push(asd);
+  console.log(list);
+});
 
 //TODO initMap()
 function initMap() {
@@ -138,12 +146,13 @@ function initMap() {
   $(document).ready(function () {
     $("#btn3").click(function () {
       makeChart(80, chart1, '#f5b914');
-  
+      console.log(district);
     });
   });
   $(document).ready(function () {
     $("#btn4").click(function () {
       makeChart(50, chart2, '#0A174E');
+      console.log(list);
     });
   });
   

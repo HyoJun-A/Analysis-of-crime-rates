@@ -32,9 +32,15 @@ let crime_rate = [['종로구', 4.8415],
                   ['강동구', 9.6492]
                 ]
 
+// select_box에서 선택한 자치구의 text 저장
+var list = [];
+$("select[name = district]").change(function(){
+  var district = $("select[name=district] option:selected").text();
+  list.push(district);
+});
+
 //TODO initMap()
 function initMap() {
-
     var seoul = { lat: 37.5642135, lng: 127.0016985 };
     // 서울특별시 자치구별 이름 및 위도 경도 
     var locations = [
@@ -66,33 +72,6 @@ function initMap() {
     ];
     var test = 1
     // 마커안에 정보들이 들어갈 문자
-    var Information = [
-      ['<b>강남구</b> <br>CCTV : 12.1% <br> 생활인구(유동인구) : 2.5% <br> 학교: 5.8% <br> 5대범죄 발생률 : 7.9% <br> 5대범죄 검거율 : 7.8%'],
-      ['광진구'],
-      ['영등포구'],
-      ['송파구'],
-      ['양천구'],
-      ['금천구'],
-      ['구로구'],
-      ['강서구'],
-      ['은평구'],
-      ['서초구'],
-      ['강동구'],
-      ['마포구'],
-      ['서대문구'],
-      ['<b>용산구</b> <br>CCTV : 1.6% <br> 생활인구(유동인구) : 2.4% <br> 학교: 2.4% <br> 5대범죄 발생률 : 3.2% <br> 5대범죄 검거율 : 3.0%'],
-      ['노원구'],
-      ['도봉구'],
-      ['성북구'],
-      ['강북구'],
-      ['중랑구'],
-      ['성동구'],
-      ['동대문구'],
-      ['종로구'],
-      ['중구'],
-      ['동작구'],
-      ['관악구']
-    ];
   
     // 구글맵을 통하여 지도를 구현
     const map = new google.maps.Map(document.getElementById("map"), {
@@ -142,8 +121,12 @@ function initMap() {
     button.addEventListener('click', changeCenter);
 
     function changeCenter(){
-      map.panTo(seoul);
+      map.panTo({lat: locations[0][1], lng: locations[0][2]});
       map.setZoom(15);
+      map.data.setStyle({
+        fillColor: "#000000"
+      })
+      console.log(list);
     }
   }
   
@@ -169,18 +152,18 @@ function initMap() {
   
   
   
-  $(document).ready(function () {
-    $("#btn3").click(function () {
-      makeChart(80, chart1, '#f5b914');
+  // $(document).ready(function () {
+  //   $("#btn3").click(function () {
+  //     makeChart(80, chart1, '#f5b914');
   
-    });
-  });
+  //   });
+  // });
   
-  $(document).ready(function () {
-    $("#btn4").click(function () {
-      makeChart(50, chart2, '#0A174E');
-    });
-  });
+  // $(document).ready(function () {
+  //   $("#btn4").click(function () {
+  //     makeChart(50, chart2, '#0A174E');
+  //   });
+  // });
   
   // -----------------------------------
   // (function( $ ) {

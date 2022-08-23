@@ -40,14 +40,12 @@ app.post('/data', function(req, res){
     user_data[0] = DB;
     
     // DB Query save 
-    const cctv = "SELECT * FROM CCTV WHERE Districtname = '" + user_data[0] + "';";
-    const population = "SELECT * FROM POPULATION WHERE Districtname = '" + user_data[0] + "';";
-    const school = "SELECT * FROM SCHOOL WHERE Districtname = '" + user_data[0] + "';";
+    var cctv = "SELECT * FROM CCTV WHERE Districtname = '" + user_data[0] + "';";
+    var population = "SELECT * FROM POPULATION WHERE Districtname = '" + user_data[0] + "';";
+    var school = "SELECT * FROM SCHOOL WHERE Districtname = '" + user_data[0] + "';";
     // 테이터 퍼센트 값 
-    const data_num = "SELECT TRUNCATE( COUNT(Districtname) / (SELECT COUNT(Districtname) FROM cctv) *100, 0) as Cdata from cctv WHERE Districtname = '" + user_data[0] + "' UNION SELECT TRUNCATE( COUNT(Districtname) / (SELECT COUNT(Districtname) FROM population) *100, 0) as Pdata from population WHERE Districtname = '" + user_data[0] + "'UNION SELECT TRUNCATE( COUNT(Districtname) / (SELECT COUNT(Districtname) FROM school) *100, 0) as Sdata from school WHERE Districtname = '" + user_data[0] + "'UNION ALL SELECT TRUNCATE(enter /(SELECT SUM(enter) FROM data)*100, 0) FROM data WHERE district_name = '" + user_data[0] +"' UNION ALL SELECT TRUNCATE(foreigner /(SELECT SUM(foreigner) FROM data)*100, 0) FROM data WHERE district_name = '" + user_data[0] + "'UNION ALL SELECT TRUNCATE(pol /(SELECT SUM(pol) FROM data)*100, 0) FROM data WHERE district_name = '" + user_data +"' ;"
-    
-    // 범죄율
-    const crime = 
+    var data_num = "SELECT TRUNCATE( COUNT(Districtname) / (SELECT COUNT(Districtname) FROM cctv) *100, 0) as Cdata from cctv WHERE Districtname = '" + user_data[0] + "' UNION SELECT TRUNCATE( COUNT(Districtname) / (SELECT COUNT(Districtname) FROM population) *100, 0) as Pdata from population WHERE Districtname = '" + user_data[0] + "'UNION SELECT TRUNCATE( COUNT(Districtname) / (SELECT COUNT(Districtname) FROM school) *100, 0) as Sdata from school WHERE Districtname = '" + user_data[0] + "'UNION ALL SELECT TRUNCATE(enter /(SELECT SUM(enter) FROM data)*100, 0) FROM data WHERE district_name = '" + user_data[0] +"' UNION ALL SELECT TRUNCATE(foreigner /(SELECT SUM(foreigner) FROM data)*100, 0) FROM data WHERE district_name = '" + user_data[0] + "'UNION ALL SELECT TRUNCATE(pol /(SELECT SUM(pol) FROM data)*100, 0) FROM data WHERE district_name = '" + user_data +"' ;"
+
     // DB전체 정보
     user_data[1] = cctv;
     user_data[2] = population;
