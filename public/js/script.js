@@ -108,7 +108,7 @@ function initMap() {
         });
       }
     }
-    map.data.loadGeoJson("/data/Seoul1.geojson")
+    map.data.loadGeoJson("/data/District.geojson")
       map.data.setStyle({
         strokeColor: "#000000",
         strokeOpacity: 0.8,
@@ -116,6 +116,14 @@ function initMap() {
         fillColor: "#FFFFFF",
         fillOpacity: 0.4
       });
+      map.data.addListener('mouseover', function(event) {
+        map.data.revertStyle();
+        map.data.overrideStyle(event.feature, {strokeWeight: 8});
+      });
+      map.data.addListener('mouseout', function(event) {
+        map.data.revertStyle();
+      });
+      
     
       
     
