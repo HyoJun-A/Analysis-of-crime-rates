@@ -108,7 +108,7 @@ function initMap() {
         });
       }
     }
-    map.data.loadGeoJson("/data/seoul.geojson")
+    map.data.loadGeoJson("/data/Seoul1.geojson")
       map.data.setStyle({
         strokeColor: "#000000",
         strokeOpacity: 0.8,
@@ -116,6 +116,8 @@ function initMap() {
         fillColor: "#FFFFFF",
         fillOpacity: 0.4
       });
+    
+      
     
     var button = document.getElementById('btn6');
     button.addEventListener('click', changeCenter);
@@ -127,6 +129,7 @@ function initMap() {
         fillColor: "#000000"
       })
       console.log(list);
+      
     }
   }
   
