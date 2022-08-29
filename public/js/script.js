@@ -117,19 +117,54 @@ function initMap() {
     fillOpacity: 0.4
   });
 
-
-
+  var num = 0;
+  // 자치구확인 > selet_box에서 선택된 자치구의 값을 토대로 범죄율, 자치구 위도 경도 사용
   var button = document.getElementById('btn6');
   button.addEventListener('click', changeCenter);
 
   function changeCenter() {
-    map.panTo({ lat: locations[0][1], lng: locations[0][2] });
+    var lat1 =[];
+    var lng1 =[];
+    for(i=0; i<locations.length; i++){
+      if(locations[i][0]==list[0]){
+        lat1.push(locations[i][1]);
+        lng1.push(locations[i][2]);
+      }
+    };
+    // 위도 경도 지정
+    map.panTo({ 
+      lat: lat1[0], 
+      lng: lng1[0] 
+    });
+    // 구글맵 zoom_in
     map.setZoom(15);
-    map.data.setStyle({
-      fillColor: "#000000"
-    })
-    console.log(list[0]);
-
+    // map스타일 초기화
+    map.data.setStyle({});
+    for(i=0; i<crime_rate.length; i++){
+      if(crime_rate[i][0]==list[0]){
+        if(crime_rate[i][1] < 4){
+          map.data.setStyle({
+            fillColor: "#008000"
+          });
+        }
+        else if(crime_rate[i][1] < 7){
+          map.data.setStyle({
+            fillColor: "#FFFF00"
+          });
+        }
+        else if(crime_rate[i][1] < 10){
+          map.data.setStyle({
+            fillColor: "#FF8c00"
+          });
+        }
+        else{
+          map.data.setStyle({
+            fillColor: "#FF0000"
+          });
+        };
+      };
+    };
+    
   }
 }
 
