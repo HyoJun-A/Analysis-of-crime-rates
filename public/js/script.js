@@ -83,31 +83,6 @@ function initMap() {
   var infowindow = new google.maps.InfoWindow();
   var marker, i;
 
-  // locations의 길이만큼 반복하여 지도에 마커 표시 
-  for (i = 0; i < locations.length; i++) {
-    marker = new google.maps.Marker({
-      id: i,
-      position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-      map: map
-    });
-
-    // 마커를 클릭시 정보창을 뛰움 (inforwindow)
-    google.maps.event.addListener(marker, 'click', (function (marker, i) {
-      return function () {
-        infowindow.setContent(Information[i][0]);
-        infowindow.open(map, marker);
-      }
-
-    })(marker, i));
-
-    // 마커를 클릭시 줌(15)만큼, 마커를 지도의 중심으로 이동 
-    if (marker) {
-      marker.addListener('click', function () {
-        map.setZoom(15);
-        map.setCenter(this.getPosition());
-      });
-    }
-  }
   map.data.loadGeoJson("/data/District.geojson")
   map.data.setStyle({
     strokeColor: "#000000",
@@ -129,6 +104,11 @@ function initMap() {
       if(locations[i][0]==list[0]){
         lat1.push(locations[i][1]);
         lng1.push(locations[i][2]);
+        marker = new google.maps.Marker({
+          id: i,
+          position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+          map: map
+        });
       }
     };
     // 위도 경도 지정
@@ -186,46 +166,6 @@ const makeChart = (percent, classname, color) => {
 const colorFn = (i, classname, color) => {
   classname.style.background = "conic-gradient(" + color + " 0% " + i + "%, #dedede " + i + "% 100%)";
 }
-
-
-
-
-// $(document).ready(function () {
-//   $("#btn3").click(function () {
-//     makeChart(80, chart1, '#f5b914');
-
-//   });
-// });
-
-// $(document).ready(function () {
-//   $("#btn4").click(function () {
-//     makeChart(50, chart2, '#0A174E');
-//   });
-// });
-
-// -----------------------------------
-// (function( $ ) {
-//   "use strict";
-//   $(function() {
-//       function animated_contents() {
-//           $(".zt-skill-bar > div ").each(function (i) {
-//               var $this  = $(this),
-//                   skills = $this.data('width');
-
-//               $this.css({'width' : skills + '%'});
-
-//           });
-//       }
-
-//       if(jQuery().appear) {
-//           $('.zt-skill-bar').appear().on('appear', function() {
-//               animated_contents();
-//           });
-//       } else {
-//           animated_contents();
-//       }
-//   });
-// }(jQuery));
 
 $(document).ready(function () {
   $("#btn2").click(function () {

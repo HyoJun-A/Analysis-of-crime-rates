@@ -102,18 +102,7 @@
     float: right;
   }
   
-/*   
-  .btn3 {
-    width: 38%;
-    margin-left: 10%;
-    float: left;
-  }
-  
-  .btn4 {
-    width: 38%;
-    margin-right: 10%;
-    float: right;
-  } */
+
 
   .btn5 {
     width: 38%;
@@ -127,112 +116,7 @@
     margin-right: 10%;
     float: right;
   }
-  
-  /* 범죄율, 위험도 */
-  /* .chart {
-    position: relative;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    transition: 0.3s;
-    margin-top: 70%;
-    margin-left: 20%;
-  }
-  
-  .chart1 {
-    position: relative;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    transition: 0.3s;
-    margin-top: 15%;
-    margin-left: 20%;
-  }
-  
-  span.center {
-    background: #fff;
-    
-    position: absolute;
-    top: 50%;
-    left: 50%; 
-    width: 40%;
-    height: 40%;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 40px;
-    font-size: 15px;
-    transform: translate(-50%, -50%); 
-  }
-  
-  .blue {
-    background: #5abae6;
-  }
-  .red {
-    background: #434e4e;
-  }
-  .green {
-    background: #9dbb19;
-  }
-  .yellow {
-    background: #f7b358;
-  }
-  
-  span.blue {
-    position: absolute;
-    font-size: 20px;
-    line-height: 1.8em;
-    color: #FFF;
-    text-align: center;
-    border-radius: 15px;
-    display: inline-block;
-    width: 60px;
-    height: 100%;
-    bottom: 0;
-    left: 0px;
-  }
-  span.red {
-    position: absolute;
-    font-size: 20px;
-    line-height: 1.8em;
-    color: #FFF;
-    text-align: center;
-    border-radius: 15px;
-    display: inline-block;
-    width: 60px;
-    height: 80%;
-    bottom: 0;
-    left: 70px;
-  }
-  span.green {
-    position: absolute;
-    font-size: 20px;
-    line-height: 1.8em;
-    color: #FFF;
-    text-align: center;
-    border-radius: 15px;
-    display: inline-block;
-    width: 60px;
-    height: 60%;
-    bottom: 0;
-    left: 140px;
-  }
-  span.yellow {
-    position: absolute;
-    font-size: 20px;
-    line-height: 1.8em;
-    color: #FFF;
-    text-align: center;
-    border-radius: 15px;
-    display: inline-block;
-    width: 60px;
-    height: 20%;
-    bottom: 0;
-    left: 210px;
-  }
-  
-   */
-  
-  /* ------------------------------- */
+
   .zt-skill-bar {
     color: #fff;
     font-size: 11px;
